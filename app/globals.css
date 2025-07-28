@@ -45,37 +45,48 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  
+  /* DailyMood Brand Colors */
+  --milk-tea: #F5E6D3;
+  --misty-gray-blue: #B8C5D1;
+  --dried-rose: #D4A5A5;
+  --almond-white: #F7F3F0;
+  --forest-green: #6B8E6B;
+  --mustard-yellow: #D4B86A;
+  --deep-gray-brown: #4A3C28;
+  
+  /* Shadcn/UI adapted for DailyMood theme */
+  --background: #F7F3F0; /* almond-white */
+  --foreground: #4A3C28; /* deep-gray-brown */
+  --card: #FFFFFF;
+  --card-foreground: #4A3C28;
+  --popover: #FFFFFF;
+  --popover-foreground: #4A3C28;
+  --primary: #6B8E6B; /* forest-green for CTA buttons */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5E6D3; /* milk-tea */
+  --secondary-foreground: #4A3C28;
+  --muted: #F5E6D3; /* milk-tea */
+  --muted-foreground: #6B7280;
+  --accent: #D4A5A5; /* dried-rose */
+  --accent-foreground: #4A3C28;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --border: #E5E7EB;
+  --input: #FFFFFF;
+  --ring: #B8C5D1; /* misty-gray-blue */
+  --chart-1: #6B8E6B;
+  --chart-2: #D4A5A5;
+  --chart-3: #B8C5D1;
+  --chart-4: #D4B86A;
+  --chart-5: #F5E6D3;
+  --sidebar: #F7F3F0;
+  --sidebar-foreground: #4A3C28;
+  --sidebar-primary: #6B8E6B;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5E6D3;
+  --sidebar-accent-foreground: #4A3C28;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #B8C5D1;
 }
 
 .dark {
@@ -117,6 +128,38 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* DailyMood specific styling */
+  .mood-card {
+    @apply bg-card rounded-xl border border-border/50 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1;
+  }
+  
+  .mood-button {
+    @apply bg-primary text-primary-foreground rounded-full px-6 py-3 font-medium transition-all duration-200 hover:bg-primary/90 hover:shadow-lg active:scale-95;
+  }
+  
+  .mood-button-secondary {
+    @apply bg-secondary text-secondary-foreground rounded-full px-6 py-3 font-medium transition-all duration-200 hover:bg-secondary/80 hover:shadow-md active:scale-95;
+  }
+  
+  .gentle-shadow {
+    box-shadow: 0 4px 20px -4px rgba(74, 60, 40, 0.1);
+  }
+  
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-spacing {
+    @apply py-12 lg:py-16;
+  }
+  
+  /* Mood emoji styling */
+  .mood-emoji {
+    @apply text-4xl sm:text-5xl filter transition-all duration-200 hover:scale-110;
   }
 }
